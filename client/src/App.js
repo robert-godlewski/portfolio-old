@@ -1,23 +1,37 @@
-import logo from './logo.svg';
+// Stylesheets
 import './App.css';
 
+// JS Libraries
+import React, {useState} from 'react';
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
+
+// JS Components
+import HomeView from './components/HomeView';
+
+
 function App() {
+  const [projectList, setProjectList] = useState([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={<HomeView 
+              projectList={projectList}
+              setProjectList={setProjectList}
+            />}
+          />
+          {/*<Route
+            path="/:id"
+            element={<OneProject 
+              projectList={projectList}
+              setProjectList={setProjectList}
+            />}
+            />*/}
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

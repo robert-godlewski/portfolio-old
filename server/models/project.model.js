@@ -20,9 +20,11 @@ const ProjectSchema = new mongoose.Schema({
     // Details about the project
     info: {type: String},
     // Images of the project
-    imageLinkList: [{imagelink: String}],
+    //imageLinkList: [{imagelink: String}],
     // Audio/Visual links for the project
-    streamingLink: {type: String},
+    //streamingLink: {type: String},
+    // Other links for the project
+    link: {type: String},
 }, {timestamps: true});
 
 
