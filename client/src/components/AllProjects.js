@@ -1,6 +1,6 @@
 // JS Libraries
 import React, {useEffect} from 'react';
-//import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -21,22 +21,21 @@ const AllProjects = (props) => {
         <div>
             {
                 projectList.map((project, index) => {
-                    <div key={index}>
-                        {/* For some reason this is not working? */}
-                        {/*console.log(project)*/}
-                        {console.log(project._id)}
-                        {console.log(project.name)}
-                        <h3>
-                            {/*<Link to={`/${project._id}`}>*/}
-                                {project.name}
-                            {/*</Link>*/}
-                        </h3>
-                        {console.log(project.projectType)}
-                        <p>{project.projectType}</p>
-                        {console.log(project.info)}
-                        <p>{project.info}</p>
-                        {/*<Link to={project.link}>LINK</Link>*/}
-                    </div>
+                    return (
+                        <div key={index}>
+                            {/*console.log(project)*/}
+                            {console.log(project._id)}
+                            <h3>
+                                {/*<Link to={`/${project._id}`}>*/}
+                                    {project.name}
+                                {/*</Link>*/}
+                            </h3>
+                            <p>{project.projectType}</p>
+                            {project.streamingLink ? <iframe src={project.streamingLink} width="70%" height="280" frameBorder="0" allowtransparency="true" allow="encrypted-media"></iframe> : null}
+                            <p>{project.info}</p>
+                            {project.link ? <Link to={project.link}>LINK</Link> : null}
+                        </div>
+                    )
                 })
             }
         </div>
