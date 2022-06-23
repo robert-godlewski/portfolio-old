@@ -22,6 +22,7 @@ const AllProjects = (props) => {
             {
                 projectList.map((project, index) => {
                     <div key={index}>
+                        {/* For some reason this is not working? */}
                         {/*console.log(project)*/}
                         {console.log(project._id)}
                         {console.log(project.name)}
